@@ -8,6 +8,7 @@
 |---|---|
 | `articles/` | 記事の Markdown（1 ファイル = 1 記事）。ファイル名がスラッグ（公開後の URL）になる |
 | `books/` | 本（あれば）。Zenn の book 形式 |
+| `images/` | 記事に埋め込む画像。記事からは `/images/<slug>/<name>.png` で参照する |
 | `scripts/deploy-zenn.sh` | main へ「履歴 1 コミット」で force push するデプロイスクリプト |
 
 ### 記事ファイルの規約（Zenn）
@@ -49,7 +50,7 @@ git add articles/ && git commit -m "..." && git push
 
 ### 注意
 - **main を直接編集しない**。次のデプロイで force push されて消える。編集は必ず作業ブランチで。
-- `deploy-zenn.sh` が main に載せるのは `CONTENT_PATHS`（`articles/` `books/` `README.md`）だけ。
+- `deploy-zenn.sh` が main に載せるのは `CONTENT_PATHS`（`articles/` `books/` `images/` `README.md`）だけ。
   スクリプトや CLAUDE.md は公開対象に含めない（Zenn からは無視されるが、main をコンテンツのみで保つ方針）。
 - 下書き（`published: false`）でも main に載せれば Zenn 上で本人プレビューが可能。一般公開は `published: true` にしてから再デプロイ。
 

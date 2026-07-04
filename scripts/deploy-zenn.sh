@@ -29,7 +29,8 @@ DEPLOY_BRANCH="main"
 COMMIT_MSG="${1:-Deploy Zenn content}"
 
 # 公開対象（ここに列挙したものだけが main に載る）
-CONTENT_PATHS=(articles books README.md)
+# images/ は Zenn が記事内の /images/... 参照を解決するためのディレクトリ。
+CONTENT_PATHS=(articles books images README.md)
 
 cd "$REPO_ROOT"
 
