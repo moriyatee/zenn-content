@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:#ffffff; }
+  body {
+    font-family:-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    color:#1f2933;
+    padding:28px;
+  }
+  .card {
+    width:1140px;
+    background:#f7f9fc;
+    border:1px solid #dbe3ee;
+    border-radius:20px;
+    padding:34px 38px 30px;
+  }
+  .title { font-size:30px; font-weight:800; letter-spacing:.02em; }
+  .title .accent { color:#2563c9; }
+  .subtitle { font-size:15px; color:#6b7684; margin-top:8px; }
+
+  .sec-label {
+    display:inline-block; font-size:14px; font-weight:700; color:#fff;
+    background:#2563c9; padding:5px 14px; border-radius:999px; margin:26px 0 14px;
+  }
+
+  /* calorie trio */
+  .trio { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .ct { border-radius:16px; padding:18px 18px 16px; border:2px solid; background:#fff; }
+  .ct .tag { font-size:13px; font-weight:800; padding:3px 12px; border-radius:999px; color:#fff; display:inline-block; }
+  .ct .sensor { font-size:20px; font-weight:800; margin:12px 0 6px; }
+  .ct .role { font-size:14px; color:#55606e; line-height:1.6; }
+  .intake { border-color:#12a594; }
+  .intake .tag { background:#12a594; }
+  .consume { border-color:#e8833a; }
+  .consume .tag { background:#e8833a; }
+
+  .balance {
+    margin-top:16px; background:#eef3fb; border:1px dashed #a9c1e8; border-radius:14px;
+    padding:14px 18px; font-size:17px; font-weight:700; color:#1d4ed8; text-align:center;
+  }
+  .balance .b-in { color:#0d8574; }
+  .balance .b-out { color:#d9702a; }
+
+  /* replacement */
+  .repl { display:flex; align-items:center; gap:20px; background:#fff; border:1px solid #dbe3ee; border-radius:16px; padding:18px 22px; }
+  .repl .box { flex:1; }
+  .repl .h { font-size:13px; font-weight:700; color:#8a94a2; margin-bottom:6px; }
+  .repl .dev { font-size:16px; font-weight:800; }
+  .repl .s-old { font-size:18px; font-weight:800; color:#9aa3af; margin-top:6px; text-decoration:line-through; text-decoration-color:#cbd2db; }
+  .repl .s-new { font-size:18px; font-weight:800; color:#2563c9; margin-top:6px; }
+  .repl .arrow { font-size:34px; color:#e8833a; font-weight:800; }
+  .repl .note { font-size:12.5px; color:#8a94a2; margin-top:8px; }
+
+  /* other sensors */
+  .others { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px 16px; }
+  .oi { display:flex; gap:10px; font-size:14px; background:#fff; border:1px solid #e4eaf2; border-radius:10px; padding:10px 12px; }
+  .oi .on { font-weight:700; color:#33404f; white-space:nowrap; }
+  .oi .od { color:#6b7684; }
+
+  .foot { font-size:12px; color:#9aa3af; margin-top:20px; line-height:1.6; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">からだメイト Watch <span class="accent">搭載センサー10種と役割</span></div>
+    <div class="subtitle">シャープ MH-W01／カロリー収支を1台で測る仕組み</div>
+
+    <div class="sec-label">カロリー収支を担う3センサー</div>
+    <div class="trio">
+      <div class="ct intake">
+        <span class="tag">摂取</span>
+        <div class="sensor">生体電気インピーダンス</div>
+        <div class="role">微弱電流で細胞内外の水分移動を検出し、摂取カロリーを逆算</div>
+      </div>
+      <div class="ct consume">
+        <span class="tag">消費</span>
+        <div class="sensor">光学式心拍（PPG）</div>
+        <div class="role">心拍数から運動強度・安静時代謝を推定</div>
+      </div>
+      <div class="ct consume">
+        <span class="tag">消費</span>
+        <div class="sensor">加速度</div>
+        <div class="role">歩数・身体活動量を計測</div>
+      </div>
+    </div>
+    <div class="balance">
+      カロリー収支　=　<span class="b-in">摂取（インピーダンス）</span>　−　<span class="b-out">消費（光学式心拍 ＋ 加速度）</span>
+    </div>
+
+    <div class="sec-label">GoBe2 からの置き換え（推測）</div>
+    <div class="repl">
+      <div class="box">
+        <div class="h">HEALBE GoBe2</div>
+        <div class="dev">心拍・血流の検出</div>
+        <div class="s-old">ピエゾ（圧電）センサー</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box">
+        <div class="h">からだメイト Watch</div>
+        <div class="dev">心拍の検出</div>
+        <div class="s-new">光学式心拍センサー（PPG）</div>
+      </div>
+      <div class="box" style="flex:1.3;">
+        <div class="note">GoBe2でピエゾが担っていた心拍検出を、一般的なスマートウォッチと同じ光学式（PPG）へ置き換えたと推測される。摂取（インピーダンス）と活動量（加速度）は共通。</div>
+      </div>
+    </div>
+
+    <div class="sec-label">その他の搭載センサー（一般的なスマートウォッチ機能）</div>
+    <div class="others">
+      <div class="oi"><span class="on">赤色・赤外線</span><span class="od">血中酸素（SpO2）</span></div>
+      <div class="oi"><span class="on">皮膚温度</span><span class="od">体調・睡眠／温度補正</span></div>
+      <div class="oi"><span class="on">ジャイロ</span><span class="od">手首の動き・ジェスチャー</span></div>
+      <div class="oi"><span class="on">地磁気</span><span class="od">方位の検出</span></div>
+      <div class="oi"><span class="on">GPS</span><span class="od">位置・距離・ペース</span></div>
+      <div class="oi"><span class="on">気圧</span><span class="od">高度・階段の上り下り</span></div>
+      <div class="oi"><span class="on">照度</span><span class="od">画面輝度の自動調整</span></div>
+    </div>
+
+    <div class="foot">※ センサーの用途はシャープ公式仕様および一般的なスマートウォッチ構成からの推定を含みます。「ピエゾ→光学式」の置き換えは公開仕様からの筆者推測です。</div>
+  </div>
+</body>
+</html>
